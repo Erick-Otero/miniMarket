@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>miniMarket</name>
+    </assembly>
+    <members>
+        <member name="M:miniMarket.Controllers.CategoriasController.Get">
+            <response code="200">La operación fue exitosa y se devuelve la lista completa de categorías disponibles.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.CategoriasController.GetById(System.Int32)">
+            <param name="id">ID de la categoría que se desea consultar.</param>
+            <response code="200">Devuelve una categoría según el parámetro 'ID'.</response>
+            <response code="404">Si no existe una categoría.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.CategoriasController.Post(miniMarket.Dto.CategoriaEscrituraDto)">
+            <param name="dto">Objeto con los datos de la categoría a crear.</param>
+            <response code="201">La categoría se creó correctamente y se devuelve el objeto creado.</response>
+            <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
+            <response code="500">Ocurrió un error interno al intentar crear la categoría.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.CategoriasController.Put(System.Int32,miniMarket.Dto.CategoriaEscrituraDto)">
+            <param name="id">ID de la categoría que se desea actualizar.</param>
+            <param name="dto">Objeto con los datos actualizados de la categoría.</param>
+            <response code="204">La ategoría se actualizó correctamente.</response>
+            <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
+            <response code="404">No se encontró ninguna categoría con el ID especificado.</response>
+            <response code="500">Ocurrió un error interno al intentar actualizar la categoría.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.CategoriasController.Delete(System.Int32)">
+            <param name="id">ID de la categoría que se desea eliminar.</param>
+            <response code="204">La categoría se eliminó correctamente.</response>
+            <response code="404">No se encontró ninguna categoría con el ID especificado.</response>
+            <response code="500">Ocurrió un error interno al intentar eliminar la categoría.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.ClientesController.Get">
+            <response code="200">La operación fue exitosa y se devuelve la lista completa de empleados disponibles.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.ClientesController.GetByIdAsync(System.Int32)">
+            <param name="id">ID del cliente que se desea consultar.</param>
+            <response code="200">Devuelve un cliente según el parámetro 'ID'.</response>
+            <response code="404">Si no existe un cliente.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.ClientesController.Post(miniMarket.Dto.ClienteEscrituraDto)">
+            <param name="dto">Objeto con los datos del cliente a crear.</param>
+            <response code="201">El cliente se creó correctamente y se devuelve el objeto creado.</response>
+            <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
+            <response code="500">Ocurrió un error interno al intentar crear el cliente.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.ClientesController.Put(System.Int32,miniMarket.Dto.ClienteEscrituraDto)">
+            <param name="id">ID del cliente que se desea actualizar.</param>
+            <param name="dto">Objeto con los datos actualizados del cliente.</param>
+            <response code="204">El cliente se actualizó correctamente.</response>
+            <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
+            <response code="404">No se encontró ningún cliente con el ID especificado.</response>
+            <response code="500">Ocurrió un error interno al intentar actualizar el cliente.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.ClientesController.Delete(System.Int32)">
+            <param name="id">ID del cliente que se desea eliminar.</param>
+            <response code="204">El cliente se eliminó correctamente.</response>
+            <response code="404">No se encontró ningún cliente con el ID especificado.</response>
+            <response code="500">Ocurrió un error interno al intentar eliminar el cliente.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.EmpleadosController.Get">
+            <response code="200">La operación fue exitosa y se devuelve la lista completa de empleados disponibles.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.EmpleadosController.GetById(System.Int32)">
+            <param name="id">ID del empleado que se desea consultar.</param>
+            <response code="200">Devuelve un empleado según el parámetro 'ID'.</response>
+            <response code="404">Si no existe un empleado.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.EmpleadosController.Post(miniMarket.Dto.EmpleadoEscrituraDto)">
+            <param name="dto">Objeto con los datos del empleado a crear.</param>
+            <response code="201">El empleado se creó correctamente y se devuelve el objeto creado.</response>
+            <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
+            <response code="500">Ocurrió un error interno al intentar crear el empleado.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.EmpleadosController.Put(System.Int32,miniMarket.Dto.EmpleadoEscrituraDto)">
+            <param name="id">ID del empleado que se desea actualizar.</param>
+            <param name="dto">Objeto con los datos actualizados del empleado.</param>
+            <response code="204">El empleado se actualizó correctamente.</response>
+            <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
+            <response code="404">No se encontró ningún empleado con el ID especificado.</response>
+            <response code="500">Ocurrió un error interno al intentar actualizar el empleado.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.EmpleadosController.Delete(System.Int32)">
+            <param name="id">ID del empleado que se desea eliminar.</param>
+            <response code="204">El empleado se eliminó correctamente.</response>
+            <response code="404">No se encontró ningún empleado con el ID especificado.</response>
+            <response code="500">Ocurrió un error interno al intentar eliminar el empleado.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.InventariosController.Get">
+            <response code="200">La operación fue exitosa y se devuelve la lista completa de inventario disponible.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.MarcasController.Get">
+            <response code="200">La operación fue exitosa y se devuelve la lista completa de marcas disponibles.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.MarcasController.GetById(System.Int32)">
+            <param name="id">ID de la marca que se desea consultar.</param>
+            <response code="200">Devuelve una marca según el parámetro 'ID'.</response>
+            <response code="404">Si no existe una marca.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.MarcasController.Post(miniMarket.Dto.MarcaEscrituraDto)">
+            <param name="dto">Objeto con los datos de la marca a crear.</param>
+            <response code="201">La marca se creó correctamente y se devuelve el objeto creado.</response>
+            <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
+            <response code="500">Ocurrió un error interno al intentar crear la marca.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.MarcasController.Put(System.Int32,miniMarket.Dto.MarcaEscrituraDto)">
+            <param name="id">ID de la marca que se desea actualizar.</param>
+            <param name="dto">Objeto con los datos actualizados de la marca.</param>
+            <response code="204">La marca se actualizó correctamente.</response>
+            <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
+            <response code="404">No se encontró ninguna marca con el ID especificado.</response>
+            <response code="500">Ocurrió un error interno al intentar actualizar la marca.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.MarcasController.Delete(System.Int32)">
+            <param name="id">ID de la marca que se desea eliminar.</param>
+            <response code="204">La marca se eliminó correctamente.</response>
+            <response code="404">No se encontró ninguna marca con el ID especificado.</response>
+            <response code="500">Ocurrió un error interno al intentar eliminar la marca.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.ProductosController.Get">
+            <response code="200">La operación fue exitosa y se devuelve la lista completa de productos disponibles.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.ProductosController.GetById(System.Int32)">
+            <param name="id">ID del producto que se desea consultar.</param>
+            <response code="200">Devuelve un producto según el parámetro 'ID'.</response>
+            <response code="404">Si no existe una producto.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.ProductosController.Post(miniMarket.Dto.ProductoEscrituraDto)">
+            <param name="dto">Objeto con los datos del producto a crear.</param>
+            <response code="201">El producto se creó correctamente y se devuelve el objeto creado.</response>
+            <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
+            <response code="500">Ocurrió un error interno al intentar crear el producto.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.ProductosController.Put(System.Int32,miniMarket.Dto.ProductoEscrituraDto)">
+            <param name="id">ID del producto que se desea actualizar.</param>
+            <param name="dto">Objeto con los datos actualizados del producto.</param>
+            <response code="204">El producto se actualizó correctamente.</response>
+            <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
+            <response code="404">No se encontró ningún producto con el ID especificado.</response>
+            <response code="500">Ocurrió un error interno al intentar actualizar el producto.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.ProductosController.Delete(System.Int32)">
+            <param name="id">ID del podructo que se desea eliminar.</param>
+            <response code="204">El producto se eliminó correctamente.</response>
+            <response code="404">No se encontró ningún producto con el ID especificado.</response>
+            <response code="500">Ocurrió un error interno al intentar eliminar el producto.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.TiendasController.Get">
+            <response code="200">La operación fue exitosa y se devuelve la lista completa de tiendas disponibles.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.TiendasController.GetById(System.Int32)">
+            <param name="id">ID de la tienda que se desea consultar.</param>
+            <response code="200">Devuelve una tienda según el parámetro 'ID'.</response>
+            <response code="404">Si no existe una tienda.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.TiendasController.Post(miniMarket.Dto.TiendaEscrituraDto)">
+            <param name="dto">Objeto con los datos de la tienda a crear.</param>
+            <response code="201">La tienda se creó correctamente y se devuelve el objeto creado.</response>
+            <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
+            <response code="500">Ocurrió un error interno al intentar crear la tienda.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.TiendasController.Put(System.Int32,miniMarket.Dto.TiendaEscrituraDto)">
+            <param name="id">ID de la tienda que se desea actualizar.</param>
+            <param name="dto">Objeto con los datos actualizados de la tienda.</param>
+            <response code="204">La tienda se actualizó correctamente.</response>
+            <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
+            <response code="404">No se encontró ninguna tienda con el ID especificado.</response>
+            <response code="500">Ocurrió un error interno al intentar actualizar la tienda.</response>
+        </member>
+        <member name="M:miniMarket.Controllers.TiendasController.Delete(System.Int32)">
+            <param name="id">ID de la tienda que se desea eliminar.</param>
+            <response code="204">La tienda se eliminó correctamente.</response>
+            <response code="404">No se encontró ninguna tienda con el ID especificado.</response>
+            <response code="500">Ocurrió un error interno al intentar eliminar la tienda.</response>
+        </member>
+        <member name="T:miniMarket.Dto.CategoriaEscrituraDto">
+            <summary>
+            (DTO - ESCRITURA DE DATOS) Representa el Data Transfer Object (DTO) de la categoría de productos, 
+            el cual permite realizar registros y actualizaciones en la entidad Categorías.
+            </summary>
+        </member>
+        <member name="T:miniMarket.Dto.CategoriaLecturaDto">
+            <summary>
+            (DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de la categoría de productos, 
+            el cual permite realizar consultas en la entidad Categorías.
+            </summary>
+        </member>
+        <member name="T:miniMarket.Dto.ClienteEscrituraDto">
+            <summary>
+            (DTO - ESCRITURA DE DATOS) Representa el Data Transfer Object (DTO) de un cliente, 
+            el cual permite realizar registros y actualizaciones en la entidad Clientes.
+            </summary>
+        </member>
+        <member name="P:miniMarket.Dto.ClienteEscrituraDto.Correo">
+            <summary>
+            La expresión regular permite validar si el correo electrónico tiene una estructura válida. 
+            </summary>
+        </member>
+        <member name="P:miniMarket.Dto.ClienteEscrituraDto.CodigoPostal">
+            <summary>
+            La expresión regular permite validar que el código postal contenga 4 dígitos. 
+            </summary>
+        </member>
+        <member name="T:miniMarket.Dto.ClienteLecturaDto">
+            <summary>
+            (DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de un cliente, 
+            el cual permite realizar consultas en la entidad Clientes.
+            </summary>
+        </member>
+        <member name="T:miniMarket.Dto.EmpleadoEscrituraDto">
+            <summary>
+            (DTO - ESCRITURA DE DATOS) Representa el Data Transfer Object (DTO) de un empleado, 
+            el cual permite realizar registros y actualizaciones en la entidad Empleados.
+            </summary>
+        </member>
+        <member name="P:miniMarket.Dto.EmpleadoEscrituraDto.Correo">
+            <summary>
+            La expresión regular permite validar si el correo electrónico tiene una estructura válida. 
+            </summary>
+        </member>
+        <member name="T:miniMarket.Dto.EmpleadoLecturaDto">
+            <summary>
+            (DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de un empleado, 
+            el cual permite realizar consultas en la entidad Empleados.
+            </summary>
+        </member>
+        <member name="T:miniMarket.Dto.MarcaEscrituraDto">
+            <summary>
+            (DTO - ESCRITURA DE DATOS) Representa el Data Transfer Object (DTO) de la marca de productos, 
+            el cual permite realizar registros y actualizaciones en la entidad Marcas.
+            </summary>
+        </member>
+        <member name="T:miniMarket.Dto.MarcaLecturaDto">
+            <summary>
+            (DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de la marca de productos, 
+            el cual permite realizar consultas en la entidad Marcas.
+            </summary>
+        </member>
+        <member name="T:miniMarket.Dto.ProductoEscrituraDto">
+            <summary>
+            (DTO - ESCRITURA DE DATOS) Representa el Data Transfer Object (DTO) de un producto, 
+            el cual permite realizar registros y actualizaciones en la entidad Productos.
+            </summary>
+        </member>
+        <member name="T:miniMarket.Dto.ProductoLecturaDto">
+            <summary>
+            (DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de un producto, 
+            el cual permite realizar consultas en la entidad Productos.
+            </summary>
+        </member>
+        <member name="T:miniMarket.Dto.TiendaEscrituraDto">
+            <summary>
+            (DTO - ESCRITURA DE DATOS) Representa el Data Transfer Object (DTO) de una tienda, 
+            el cual permite realizar registros y actualizaciones en la entidad Tiendas.
+            </summary>
+        </member>
+        <member name="P:miniMarket.Dto.TiendaEscrituraDto.Correo">
+            <summary>
+            La expresión regular permite validar si el correo electrónico tiene una estructura válida. 
+            </summary>
+        </member>
+        <member name="P:miniMarket.Dto.TiendaEscrituraDto.CodigoPostal">
+            <summary>
+            La expresión regular permite validar que el código postal contenga 4 dígitos. 
+            </summary>
+        </member>
+        <member name="T:miniMarket.Dto.TiendaLecturaDto">
+            <summary>
+            (DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de una tienda, 
+            el cual permite realizar consultas en la entidad Tiendas.
+            </summary>
+        </member>
+    </members>
+</doc>

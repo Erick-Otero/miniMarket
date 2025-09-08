@@ -1,0 +1,2045 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "MiniMarket API",
+    "description": "API REST para MiniMarket: \r\n                        Esta API permite gestionar de manera centralizada los módulos de un supermercado o \r\n                        tienda en línea. \r\n                        Incluye operaciones para administrar tiendas, \r\n                        permitiendo crear, leer, actualizar y eliminar registros de forma segura y eficiente.\r\n                        Además, ofrece endpoints documentados que facilitan la integración con aplicaciones\r\n                        front-end (Blazor WebAssembly, aplicaciones móviles u otros clientes HTTP).",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Categorias": {
+      "get": {
+        "tags": [
+          "Categorias"
+        ],
+        "responses": {
+          "200": {
+            "description": "La operación fue exitosa y se devuelve la lista completa de categorías disponibles.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CategoriaLecturaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CategoriaLecturaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CategoriaLecturaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Categorias"
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos de la categoría a crear.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoriaEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoriaEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoriaEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "La categoría se creó correctamente y se devuelve el objeto creado."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar crear la categoría."
+          }
+        }
+      }
+    },
+    "/api/Categorias/{id}": {
+      "get": {
+        "tags": [
+          "Categorias"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de la categoría que se desea consultar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Devuelve una categoría según el parámetro 'ID'.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Si no existe una categoría."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Categorias"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de la categoría que se desea actualizar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos actualizados de la categoría.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoriaEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoriaEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoriaEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "La ategoría se actualizó correctamente."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "404": {
+            "description": "No se encontró ninguna categoría con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar actualizar la categoría."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Categorias"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de la categoría que se desea eliminar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "La categoría se eliminó correctamente."
+          },
+          "404": {
+            "description": "No se encontró ninguna categoría con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar eliminar la categoría."
+          }
+        }
+      }
+    },
+    "/api/Clientes": {
+      "get": {
+        "tags": [
+          "Clientes"
+        ],
+        "responses": {
+          "200": {
+            "description": "La operación fue exitosa y se devuelve la lista completa de empleados disponibles.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClienteLecturaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClienteLecturaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClienteLecturaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Clientes"
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos del cliente a crear.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClienteEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClienteEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClienteEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClienteLecturaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClienteLecturaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClienteLecturaDto"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "El cliente se creó correctamente y se devuelve el objeto creado."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar crear el cliente."
+          }
+        }
+      }
+    },
+    "/api/Clientes/{id}": {
+      "get": {
+        "tags": [
+          "Clientes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del cliente que se desea consultar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Devuelve un cliente según el parámetro 'ID'.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClienteLecturaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClienteLecturaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClienteLecturaDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Si no existe un cliente."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Clientes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del cliente que se desea actualizar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos actualizados del cliente.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClienteEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClienteEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClienteEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "El cliente se actualizó correctamente."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "404": {
+            "description": "No se encontró ningún cliente con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar actualizar el cliente."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clientes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del cliente que se desea eliminar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "El cliente se eliminó correctamente."
+          },
+          "404": {
+            "description": "No se encontró ningún cliente con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar eliminar el cliente."
+          }
+        }
+      }
+    },
+    "/api/Empleados": {
+      "get": {
+        "tags": [
+          "Empleados"
+        ],
+        "responses": {
+          "200": {
+            "description": "La operación fue exitosa y se devuelve la lista completa de empleados disponibles.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpleadoLecturaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpleadoLecturaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpleadoLecturaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Empleados"
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos del empleado a crear.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpleadoEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpleadoEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpleadoEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpleadoLecturaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpleadoLecturaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpleadoLecturaDto"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "El empleado se creó correctamente y se devuelve el objeto creado."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar crear el empleado."
+          }
+        }
+      }
+    },
+    "/api/Empleados/{id}": {
+      "get": {
+        "tags": [
+          "Empleados"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del empleado que se desea consultar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Devuelve un empleado según el parámetro 'ID'.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpleadoLecturaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpleadoLecturaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpleadoLecturaDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Si no existe un empleado."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Empleados"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del empleado que se desea actualizar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos actualizados del empleado.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpleadoEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpleadoEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpleadoEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "El empleado se actualizó correctamente."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "404": {
+            "description": "No se encontró ningún empleado con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar actualizar el empleado."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Empleados"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del empleado que se desea eliminar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "El empleado se eliminó correctamente."
+          },
+          "404": {
+            "description": "No se encontró ningún empleado con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar eliminar el empleado."
+          }
+        }
+      }
+    },
+    "/api/Inventarios": {
+      "get": {
+        "tags": [
+          "Inventarios"
+        ],
+        "responses": {
+          "200": {
+            "description": "La operación fue exitosa y se devuelve la lista completa de inventario disponible.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InventarioLecturaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InventarioLecturaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InventarioLecturaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Marcas": {
+      "get": {
+        "tags": [
+          "Marcas"
+        ],
+        "responses": {
+          "200": {
+            "description": "La operación fue exitosa y se devuelve la lista completa de marcas disponibles.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarcaLecturaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarcaLecturaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarcaLecturaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Marcas"
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos de la marca a crear.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MarcaEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MarcaEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MarcaEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "La marca se creó correctamente y se devuelve el objeto creado."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar crear la marca."
+          }
+        }
+      }
+    },
+    "/api/Marcas/{id}": {
+      "get": {
+        "tags": [
+          "Marcas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de la marca que se desea consultar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Devuelve una marca según el parámetro 'ID'.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Si no existe una marca."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Marcas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de la marca que se desea actualizar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos actualizados de la marca.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MarcaEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MarcaEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MarcaEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "La marca se actualizó correctamente."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "404": {
+            "description": "No se encontró ninguna marca con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar actualizar la marca."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Marcas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de la marca que se desea eliminar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "La marca se eliminó correctamente."
+          },
+          "404": {
+            "description": "No se encontró ninguna marca con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar eliminar la marca."
+          }
+        }
+      }
+    },
+    "/api/Productos": {
+      "get": {
+        "tags": [
+          "Productos"
+        ],
+        "responses": {
+          "200": {
+            "description": "La operación fue exitosa y se devuelve la lista completa de productos disponibles.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductoLecturaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductoLecturaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductoLecturaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Productos"
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos del producto a crear.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductoEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductoEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductoEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "El producto se creó correctamente y se devuelve el objeto creado."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar crear el producto."
+          }
+        }
+      }
+    },
+    "/api/Productos/{id}": {
+      "get": {
+        "tags": [
+          "Productos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del producto que se desea consultar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Devuelve un producto según el parámetro 'ID'.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Si no existe una producto."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Productos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del producto que se desea actualizar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos actualizados del producto.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductoEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductoEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductoEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "El producto se actualizó correctamente."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "404": {
+            "description": "No se encontró ningún producto con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar actualizar el producto."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Productos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del podructo que se desea eliminar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "El producto se eliminó correctamente."
+          },
+          "404": {
+            "description": "No se encontró ningún producto con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar eliminar el producto."
+          }
+        }
+      }
+    },
+    "/api/Tiendas": {
+      "get": {
+        "tags": [
+          "Tiendas"
+        ],
+        "responses": {
+          "200": {
+            "description": "La operación fue exitosa y se devuelve la lista completa de tiendas disponibles.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TiendaLecturaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TiendaLecturaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TiendaLecturaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tiendas"
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos de la tienda a crear.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TiendaEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TiendaEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TiendaEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TiendaLecturaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TiendaLecturaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TiendaLecturaDto"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "La tienda se creó correctamente y se devuelve el objeto creado."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar crear la tienda."
+          }
+        }
+      }
+    },
+    "/api/Tiendas/{id}": {
+      "get": {
+        "tags": [
+          "Tiendas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de la tienda que se desea consultar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Devuelve una tienda según el parámetro 'ID'.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TiendaLecturaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TiendaLecturaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TiendaLecturaDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Si no existe una tienda."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Tiendas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de la tienda que se desea actualizar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos actualizados de la tienda.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TiendaEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TiendaEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TiendaEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "La tienda se actualizó correctamente."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "404": {
+            "description": "No se encontró ninguna tienda con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar actualizar la tienda."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tiendas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de la tienda que se desea eliminar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "La tienda se eliminó correctamente."
+          },
+          "404": {
+            "description": "No se encontró ninguna tienda con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar eliminar la tienda."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CategoriaEscrituraDto": {
+        "required": [
+          "nombreCategoria"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreCategoria": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - ESCRITURA DE DATOS) Representa el Data Transfer Object (DTO) de la categoría de productos, \r\nel cual permite realizar registros y actualizaciones en la entidad Categorías."
+      },
+      "CategoriaLecturaDto": {
+        "type": "object",
+        "properties": {
+          "idCategoria": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreCategoria": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de la categoría de productos, \r\nel cual permite realizar consultas en la entidad Categorías."
+      },
+      "ClienteEscrituraDto": {
+        "required": [
+          "apellido",
+          "correo",
+          "nombre",
+          "telefono"
+        ],
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "apellido": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "telefono": {
+            "minLength": 1,
+            "type": "string",
+            "format": "tel"
+          },
+          "correo": {
+            "minLength": 1,
+            "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+            "type": "string",
+            "description": "La expresión regular permite validar si el correo electrónico tiene una estructura válida."
+          },
+          "calle": {
+            "type": "string",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoPostal": {
+            "pattern": "(^\\d{4})",
+            "type": "string",
+            "description": "La expresión regular permite validar que el código postal contenga 4 dígitos.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - ESCRITURA DE DATOS) Representa el Data Transfer Object (DTO) de un cliente, \r\nel cual permite realizar registros y actualizaciones en la entidad Clientes."
+      },
+      "ClienteLecturaDto": {
+        "type": "object",
+        "properties": {
+          "idCliente": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "correo": {
+            "type": "string",
+            "nullable": true
+          },
+          "calle": {
+            "type": "string",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoPostal": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de un cliente, \r\nel cual permite realizar consultas en la entidad Clientes."
+      },
+      "EmpleadoEscrituraDto": {
+        "required": [
+          "activo",
+          "apellido",
+          "contrasena",
+          "correo",
+          "idJefe",
+          "idTienda",
+          "nombre",
+          "telefono"
+        ],
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "apellido": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "correo": {
+            "minLength": 1,
+            "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+            "type": "string",
+            "description": "La expresión regular permite validar si el correo electrónico tiene una estructura válida."
+          },
+          "telefono": {
+            "minLength": 1,
+            "type": "string",
+            "format": "tel"
+          },
+          "activo": {
+            "type": "boolean"
+          },
+          "idTienda": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idJefe": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contrasena": {
+            "maxLength": 16,
+            "minLength": 8,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - ESCRITURA DE DATOS) Representa el Data Transfer Object (DTO) de un empleado, \r\nel cual permite realizar registros y actualizaciones en la entidad Empleados."
+      },
+      "EmpleadoLecturaDto": {
+        "type": "object",
+        "properties": {
+          "idEmpleado": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "correo": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "activo": {
+            "type": "boolean"
+          },
+          "idTienda": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreTienda": {
+            "type": "string",
+            "nullable": true
+          },
+          "idJefe": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "nombreSuperior": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de un empleado, \r\nel cual permite realizar consultas en la entidad Empleados."
+      },
+      "InventarioLecturaDto": {
+        "type": "object",
+        "properties": {
+          "idTienda": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreTienda": {
+            "type": "string",
+            "nullable": true
+          },
+          "idProducto": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreProducto": {
+            "type": "string",
+            "nullable": true
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "precio": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MarcaEscrituraDto": {
+        "required": [
+          "nombreMarca"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreMarca": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - ESCRITURA DE DATOS) Representa el Data Transfer Object (DTO) de la marca de productos, \r\nel cual permite realizar registros y actualizaciones en la entidad Marcas."
+      },
+      "MarcaLecturaDto": {
+        "type": "object",
+        "properties": {
+          "idMarca": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreMarca": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de la marca de productos, \r\nel cual permite realizar consultas en la entidad Marcas."
+      },
+      "ProductoEscrituraDto": {
+        "required": [
+          "anioModelo",
+          "idCategoria",
+          "idMarca",
+          "nombreProducto",
+          "precioLista"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreProducto": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "idMarca": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idCategoria": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "anioModelo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "precioLista": {
+            "minimum": 0.1,
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - ESCRITURA DE DATOS) Representa el Data Transfer Object (DTO) de un producto, \r\nel cual permite realizar registros y actualizaciones en la entidad Productos."
+      },
+      "ProductoLecturaDto": {
+        "type": "object",
+        "properties": {
+          "idProducto": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreProducto": {
+            "type": "string",
+            "nullable": true
+          },
+          "idMarca": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreMarca": {
+            "type": "string",
+            "nullable": true
+          },
+          "idCategoria": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreCategoria": {
+            "type": "string",
+            "nullable": true
+          },
+          "anioModelo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "precioLista": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de un producto, \r\nel cual permite realizar consultas en la entidad Productos."
+      },
+      "TiendaEscrituraDto": {
+        "required": [
+          "correo",
+          "nombreTienda",
+          "telefono"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreTienda": {
+            "maxLength": 150,
+            "minLength": 1,
+            "type": "string"
+          },
+          "telefono": {
+            "minLength": 1,
+            "type": "string",
+            "format": "tel"
+          },
+          "correo": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+            "type": "string",
+            "description": "La expresión regular permite validar si el correo electrónico tiene una estructura válida."
+          },
+          "calle": {
+            "maxLength": 200,
+            "type": "string",
+            "nullable": true
+          },
+          "ciudad": {
+            "maxLength": 100,
+            "type": "string",
+            "nullable": true
+          },
+          "estado": {
+            "maxLength": 100,
+            "type": "string",
+            "nullable": true
+          },
+          "codigoPostal": {
+            "pattern": "(^\\d{4})",
+            "type": "string",
+            "description": "La expresión regular permite validar que el código postal contenga 4 dígitos.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - ESCRITURA DE DATOS) Representa el Data Transfer Object (DTO) de una tienda, \r\nel cual permite realizar registros y actualizaciones en la entidad Tiendas."
+      },
+      "TiendaLecturaDto": {
+        "type": "object",
+        "properties": {
+          "idTienda": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreTienda": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "correo": {
+            "type": "string",
+            "nullable": true
+          },
+          "calle": {
+            "type": "string",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoPostal": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de una tienda, \r\nel cual permite realizar consultas en la entidad Tiendas."
+      }
+    }
+  }
+}
