@@ -2,7 +2,7 @@
   "openapi": "3.0.4",
   "info": {
     "title": "MiniMarket API",
-    "description": "API REST para MiniMarket: \r\n                        Esta API permite gestionar de manera centralizada los módulos de un supermercado o \r\n                        tienda en línea. \r\n                        Incluye operaciones para administrar tiendas, \r\n                        permitiendo crear, leer, actualizar y eliminar registros de forma segura y eficiente.\r\n                        Además, ofrece endpoints documentados que facilitan la integración con aplicaciones\r\n                        front-end (Blazor WebAssembly, aplicaciones móviles u otros clientes HTTP).",
+    "description": "API REST para MiniMarket: \n                        Esta API permite gestionar de manera centralizada los módulos de un supermercado o \n                        tienda en línea. \n                        Incluye operaciones para administrar tiendas, \n                        permitiendo crear, leer, actualizar y eliminar registros de forma segura y eficiente.\n                        Además, ofrece endpoints documentados que facilitan la integración con aplicaciones\n                        front-end (Blazor WebAssembly, aplicaciones móviles u otros clientes HTTP).",
     "version": "v1"
   },
   "paths": {
@@ -11,9 +11,10 @@
         "tags": [
           "Categorias"
         ],
+        "summary": "Obtiene todas las categorías disponibles en la entidad.",
         "responses": {
           "200": {
-            "description": "La operación fue exitosa y se devuelve la lista completa de categorías disponibles.",
+            "description": "La operación fue exitosa y se devuelve la lista completa de categorías.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -47,6 +48,7 @@
         "tags": [
           "Categorias"
         ],
+        "summary": "Crea una nueva categoría en la entidad.",
         "requestBody": {
           "description": "Objeto con los datos de la categoría a crear.",
           "content": {
@@ -73,17 +75,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/CategoriaLecturaDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/CategoriaLecturaDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/CategoriaLecturaDto"
                 }
               }
             }
@@ -105,6 +107,7 @@
         "tags": [
           "Categorias"
         ],
+        "summary": "Obtiene una categoría específica por su identificador único.",
         "parameters": [
           {
             "name": "id",
@@ -119,27 +122,27 @@
         ],
         "responses": {
           "200": {
-            "description": "Devuelve una categoría según el parámetro 'ID'.",
+            "description": "Devuelve la categoría correspondiente al ID proporcionado.",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/CategoriaLecturaDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/CategoriaLecturaDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/CategoriaLecturaDto"
                 }
               }
             }
           },
           "404": {
-            "description": "Si no existe una categoría."
+            "description": "No se encontró ninguna categoría con el ID especificado."
           }
         }
       },
@@ -147,6 +150,7 @@
         "tags": [
           "Categorias"
         ],
+        "summary": "Actualiza una categoría existente por medio de su ID.",
         "parameters": [
           {
             "name": "id",
@@ -201,7 +205,7 @@
             }
           },
           "204": {
-            "description": "La ategoría se actualizó correctamente."
+            "description": "La categoría se actualizó correctamente."
           },
           "400": {
             "description": "Los datos enviados no cumplen con las validaciones requeridas."
@@ -218,6 +222,7 @@
         "tags": [
           "Categorias"
         ],
+        "summary": "Elimina una categoría existente por medio de su ID.",
         "parameters": [
           {
             "name": "id",
@@ -268,9 +273,10 @@
         "tags": [
           "Clientes"
         ],
+        "summary": "Obtiene todos los clientes disponibles en la entidad.",
         "responses": {
           "200": {
-            "description": "La operación fue exitosa y se devuelve la lista completa de empleados disponibles.",
+            "description": "La operación fue exitosa y se devuelve la lista completa de clientes.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -304,6 +310,7 @@
         "tags": [
           "Clientes"
         ],
+        "summary": "Crea un nuevo cliente en la entidad.",
         "requestBody": {
           "description": "Objeto con los datos del cliente a crear.",
           "content": {
@@ -362,6 +369,7 @@
         "tags": [
           "Clientes"
         ],
+        "summary": "Obtiene un cliente específico por su identificador único.",
         "parameters": [
           {
             "name": "id",
@@ -376,7 +384,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Devuelve un cliente según el parámetro 'ID'.",
+            "description": "Devuelve el cliente correspondiente al ID proporcionado.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -396,7 +404,7 @@
             }
           },
           "404": {
-            "description": "Si no existe un cliente."
+            "description": "No se encontró ningún cliente con el ID especificado."
           }
         }
       },
@@ -404,6 +412,7 @@
         "tags": [
           "Clientes"
         ],
+        "summary": "Actualiza un cliente existente por medio de su ID.",
         "parameters": [
           {
             "name": "id",
@@ -475,6 +484,7 @@
         "tags": [
           "Clientes"
         ],
+        "summary": "Elimina un cliente existente por medio de su ID.",
         "parameters": [
           {
             "name": "id",
@@ -525,9 +535,11 @@
         "tags": [
           "Empleados"
         ],
+        "summary": "Obtiene todos los empleados disponibles en la entidad.",
+        "description": "Devuelve la lista completa de empleados registrados en el sistema.",
         "responses": {
           "200": {
-            "description": "La operación fue exitosa y se devuelve la lista completa de empleados disponibles.",
+            "description": "La operación fue exitosa y se devuelve la lista de empleados.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -561,8 +573,9 @@
         "tags": [
           "Empleados"
         ],
+        "summary": "Crea un nuevo empleado en la entidad.",
         "requestBody": {
-          "description": "Objeto con los datos del empleado a crear.",
+          "description": "Objeto con los datos requeridos para crear el empleado.",
           "content": {
             "application/json": {
               "schema": {
@@ -619,11 +632,12 @@
         "tags": [
           "Empleados"
         ],
+        "summary": "Obtiene un empleado específico por su identificador único.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID del empleado que se desea consultar.",
+            "description": "ID único del empleado que se desea consultar.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -633,7 +647,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Devuelve un empleado según el parámetro 'ID'.",
+            "description": "Devuelve el empleado correspondiente al ID proporcionado.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -653,7 +667,7 @@
             }
           },
           "404": {
-            "description": "Si no existe un empleado."
+            "description": "No se encontró ningún empleado con el ID especificado."
           }
         }
       },
@@ -661,6 +675,7 @@
         "tags": [
           "Empleados"
         ],
+        "summary": "Actualiza un empleado existente por medio de su ID.",
         "parameters": [
           {
             "name": "id",
@@ -695,24 +710,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
+            "description": "OK"
           },
           "204": {
             "description": "El empleado se actualizó correctamente."
@@ -732,6 +730,7 @@
         "tags": [
           "Empleados"
         ],
+        "summary": "Elimina un empleado existente por medio de su ID.",
         "parameters": [
           {
             "name": "id",
@@ -746,24 +745,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
+            "description": "OK"
           },
           "204": {
             "description": "El empleado se eliminó correctamente."
@@ -782,9 +764,11 @@
         "tags": [
           "Inventarios"
         ],
+        "summary": "Obtiene todos los registros de inventarios disponibles en la entidad.",
+        "description": "Devuelve una lista completa de inventarios registrados en la base de datos.",
         "responses": {
           "200": {
-            "description": "La operación fue exitosa y se devuelve la lista completa de inventario disponible.",
+            "description": "La operación fue exitosa y se devuelve la lista de inventarios.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -813,6 +797,209 @@
             }
           }
         }
+      },
+      "post": {
+        "tags": [
+          "Inventarios"
+        ],
+        "summary": "Crea un nuevo inventario en la entidad.",
+        "requestBody": {
+          "description": "Objeto con los datos requeridos para crear el inventario.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InventarioEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InventarioEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InventarioEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "El inventario se creó correctamente."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar crear el inventario."
+          }
+        }
+      }
+    },
+    "/api/Inventarios/{idProducto}/{idTienda}": {
+      "get": {
+        "tags": [
+          "Inventarios"
+        ],
+        "summary": "Obtiene un inventario específico a partir de los dos identificadores proporcionados.",
+        "description": "Este método requiere dos parámetros, `idProducto` e `idTienda`, los cuales conforman una clave primaria compuesta en la entidad Inventarios.",
+        "parameters": [
+          {
+            "name": "idProducto",
+            "in": "path",
+            "description": "ID del producto asociado al inventario.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idTienda",
+            "in": "path",
+            "description": "ID de la tienda donde se encuentra el inventario.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Devuelve el inventario correspondiente a los IDs proporcionados.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InventarioLecturaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InventarioLecturaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InventarioLecturaDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No existe un inventario con los IDs especificados."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Inventarios"
+        ],
+        "summary": "Actualiza un inventario existente a partir de su clave compuesta.",
+        "parameters": [
+          {
+            "name": "idProducto",
+            "in": "path",
+            "description": "ID del producto que identifica el inventario.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idTienda",
+            "in": "path",
+            "description": "ID de la tienda que identifica el inventario.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos actualizados del inventario.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InventarioEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InventarioEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InventarioEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "El inventario se actualizó correctamente."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "404": {
+            "description": "No se encontró ningún inventario con los IDs especificados."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar actualizar el inventario."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Inventarios"
+        ],
+        "summary": "Elimina un inventario existente a partir de su clave compuesta.",
+        "parameters": [
+          {
+            "name": "idProducto",
+            "in": "path",
+            "description": "ID del producto que identifica el inventario.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idTienda",
+            "in": "path",
+            "description": "ID de la tienda que identifica el inventario.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "El inventario se eliminó correctamente."
+          },
+          "404": {
+            "description": "No se encontró ningún inventario con los IDs especificados."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar eliminar el inventario."
+          }
+        }
       }
     },
     "/api/Marcas": {
@@ -820,9 +1007,10 @@
         "tags": [
           "Marcas"
         ],
+        "summary": "Obtiene todas las marcas disponibles en la entidad.",
         "responses": {
           "200": {
-            "description": "La operación fue exitosa y se devuelve la lista completa de marcas disponibles.",
+            "description": "La operación fue exitosa y se devuelve la lista completa de marcas.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -856,6 +1044,7 @@
         "tags": [
           "Marcas"
         ],
+        "summary": "Crea una nueva marca en la entidad.",
         "requestBody": {
           "description": "Objeto con los datos de la marca a crear.",
           "content": {
@@ -882,17 +1071,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/MarcaLecturaDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/MarcaLecturaDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/MarcaLecturaDto"
                 }
               }
             }
@@ -914,6 +1103,7 @@
         "tags": [
           "Marcas"
         ],
+        "summary": "Obtiene una marca específica por su identificador único.",
         "parameters": [
           {
             "name": "id",
@@ -928,27 +1118,27 @@
         ],
         "responses": {
           "200": {
-            "description": "Devuelve una marca según el parámetro 'ID'.",
+            "description": "Devuelve la marca correspondiente al ID proporcionado.",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/MarcaLecturaDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/MarcaLecturaDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/MarcaLecturaDto"
                 }
               }
             }
           },
           "404": {
-            "description": "Si no existe una marca."
+            "description": "No se encontró ninguna marca con el ID especificado."
           }
         }
       },
@@ -956,6 +1146,7 @@
         "tags": [
           "Marcas"
         ],
+        "summary": "Actualiza una marca existente por medio de su ID.",
         "parameters": [
           {
             "name": "id",
@@ -1027,6 +1218,7 @@
         "tags": [
           "Marcas"
         ],
+        "summary": "Elimina una marca existente por medio de su ID.",
         "parameters": [
           {
             "name": "id",
@@ -1072,14 +1264,277 @@
         }
       }
     },
+    "/api/Ordenes": {
+      "get": {
+        "tags": [
+          "Ordenes"
+        ],
+        "summary": "Obtiene todas las ordenes disponibles en la entidad.",
+        "responses": {
+          "200": {
+            "description": "La operación fue exitosa y se devuelve la lista completa de ordenes.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrdenLecturaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrdenLecturaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrdenLecturaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Ordenes"
+        ],
+        "summary": "Crea una nueva orden en la entidad.",
+        "requestBody": {
+          "description": "Objeto con los datos de la orden a crear.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrdenEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrdenEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrdenEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrdenLecturaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrdenLecturaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrdenLecturaDto"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "La orden se creó correctamente y se devuelve el objeto creado."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar crear la orden."
+          }
+        }
+      }
+    },
+    "/api/Ordenes/{id}": {
+      "get": {
+        "tags": [
+          "Ordenes"
+        ],
+        "summary": "Obtiene una orden específica por su identificador único.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de la orden que se desea consultar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Devuelve la orden correspondiente al ID proporcionado.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrdenLecturaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrdenLecturaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrdenLecturaDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No se encontró ninguna orden con el ID especificado."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Ordenes"
+        ],
+        "summary": "Actualiza una orden existente por medio de su ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de la orden que se desea actualizar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Objeto con los datos actualizados de la orden.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrdenEscrituraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrdenEscrituraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrdenEscrituraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "La orden se actualizó correctamente."
+          },
+          "400": {
+            "description": "Los datos enviados no cumplen con las validaciones requeridas."
+          },
+          "404": {
+            "description": "No se encontró ninguna orden con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar actualizar la orden."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Ordenes"
+        ],
+        "summary": "Elimina una orden existente por medio de su ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de la orden que se desea eliminar.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "La orden se eliminó correctamente."
+          },
+          "404": {
+            "description": "No se encontró ninguna orden con el ID especificado."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar eliminar la orden."
+          }
+        }
+      }
+    },
     "/api/Productos": {
       "get": {
         "tags": [
           "Productos"
         ],
+        "summary": "Obtiene la lista completa de productos disponibles.",
         "responses": {
           "200": {
-            "description": "La operación fue exitosa y se devuelve la lista completa de productos disponibles.",
+            "description": "La operación fue exitosa y devuelve todos los productos.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -1113,6 +1568,7 @@
         "tags": [
           "Productos"
         ],
+        "summary": "Crea un nuevo producto en el sistema.",
         "requestBody": {
           "description": "Objeto con los datos del producto a crear.",
           "content": {
@@ -1171,6 +1627,7 @@
         "tags": [
           "Productos"
         ],
+        "summary": "Obtiene un producto por su identificador único.",
         "parameters": [
           {
             "name": "id",
@@ -1185,7 +1642,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Devuelve un producto según el parámetro 'ID'.",
+            "description": "Devuelve el producto correspondiente al ID especificado.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -1205,7 +1662,7 @@
             }
           },
           "404": {
-            "description": "Si no existe una producto."
+            "description": "No existe ningún producto con el ID especificado."
           }
         }
       },
@@ -1213,6 +1670,7 @@
         "tags": [
           "Productos"
         ],
+        "summary": "Actualiza los datos de un producto existente.",
         "parameters": [
           {
             "name": "id",
@@ -1284,11 +1742,12 @@
         "tags": [
           "Productos"
         ],
+        "summary": "Elimina un producto existente de la base de datos.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID del podructo que se desea eliminar.",
+            "description": "ID del producto que se desea eliminar.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -1334,9 +1793,10 @@
         "tags": [
           "Tiendas"
         ],
+        "summary": "Obtiene todas las tiendas disponibles en la entidad.",
         "responses": {
           "200": {
-            "description": "La operación fue exitosa y se devuelve la lista completa de tiendas disponibles.",
+            "description": "La operación fue exitosa y se devuelve la lista completa de tiendas.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -1370,6 +1830,7 @@
         "tags": [
           "Tiendas"
         ],
+        "summary": "Crea una nueva tienda en la entidad.",
         "requestBody": {
           "description": "Objeto con los datos de la tienda a crear.",
           "content": {
@@ -1428,6 +1889,7 @@
         "tags": [
           "Tiendas"
         ],
+        "summary": "Obtiene una tienda específica por su identificador único.",
         "parameters": [
           {
             "name": "id",
@@ -1442,7 +1904,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Devuelve una tienda según el parámetro 'ID'.",
+            "description": "Devuelve la tienda correspondiente al ID proporcionado.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -1462,7 +1924,7 @@
             }
           },
           "404": {
-            "description": "Si no existe una tienda."
+            "description": "No se encontró ninguna tienda con el ID especificado."
           }
         }
       },
@@ -1470,6 +1932,7 @@
         "tags": [
           "Tiendas"
         ],
+        "summary": "Actualiza una tienda existente por medio de su ID.",
         "parameters": [
           {
             "name": "id",
@@ -1541,6 +2004,7 @@
         "tags": [
           "Tiendas"
         ],
+        "summary": "Elimina una tienda existente de la base de datos por su ID.",
         "parameters": [
           {
             "name": "id",
@@ -1815,6 +2279,31 @@
         "additionalProperties": false,
         "description": "(DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de un empleado, \r\nel cual permite realizar consultas en la entidad Empleados."
       },
+      "InventarioEscrituraDto": {
+        "required": [
+          "cantidad",
+          "idProducto",
+          "idTienda"
+        ],
+        "type": "object",
+        "properties": {
+          "idTienda": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idProducto": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cantidad": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "InventarioLecturaDto": {
         "type": "object",
         "properties": {
@@ -1875,6 +2364,93 @@
         },
         "additionalProperties": false,
         "description": "(DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de la marca de productos, \r\nel cual permite realizar consultas en la entidad Marcas."
+      },
+      "OrdenEscrituraDto": {
+        "required": [
+          "fechaEnvio",
+          "fechaRequerida",
+          "idCliente",
+          "idEmpleado",
+          "idTienda"
+        ],
+        "type": "object",
+        "properties": {
+          "idCliente": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "estadoOrden": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaRequerida": {
+            "type": "string",
+            "format": "date"
+          },
+          "fechaEnvio": {
+            "type": "string",
+            "format": "date"
+          },
+          "idTienda": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idEmpleado": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - ESCRITURA DE DATOS) Representa el Data Transfer Object (DTO) de una orden, \r\nel cual permite realizar registros y actualizaciones en la entidad Ordenes."
+      },
+      "OrdenLecturaDto": {
+        "type": "object",
+        "properties": {
+          "idOrden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idCliente": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreCliente": {
+            "type": "string",
+            "nullable": true
+          },
+          "estadoOrden": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaOrden": {
+            "type": "string",
+            "format": "date"
+          },
+          "fechaRequerida": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "fechaEnvio": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "idTienda": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idEmpleado": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreEmpleado": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "(DTO - LECTURA DE DATOS) Representa el Data Transfer Object (DTO) de una orden, \r\nel cual permite realizar consultas en la entidad Ordenes."
       },
       "ProductoEscrituraDto": {
         "required": [

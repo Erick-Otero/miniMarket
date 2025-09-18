@@ -1,18 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Latitude E5450\\Documents\\miniMarket\\",
+  "WorkspaceRootPath": "C:\\Users\\Erick Otero\\Documents\\miniMarket\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|c:\\users\\latitude e5450\\documents\\minimarket\\minimarket\\controllers\\inventarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|solutionrelative:minimarket\\controllers\\inventarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|c:\\users\\erick otero\\documents\\minimarket\\minimarket\\dto\\detalleordenlecturadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|solutionrelative:minimarket\\dto\\detalleordenlecturadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|c:\\users\\latitude e5450\\documents\\minimarket\\minimarket\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|solutionrelative:minimarket\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|c:\\users\\latitude e5450\\documents\\minimarket\\minimarket\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|solutionrelative:minimarket\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|c:\\users\\erick otero\\documents\\minimarket\\minimarket\\dto\\detalleordenescrituradto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|solutionrelative:minimarket\\dto\\detalleordenescrituradto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Latitude E5450\\Documents\\miniMarket\\miniMarket\\Program.cs",
-              "RelativeDocumentMoniker": "miniMarket\\Program.cs",
-              "ToolTip": "C:\\Users\\Latitude E5450\\Documents\\miniMarket\\miniMarket\\Program.cs",
-              "RelativeToolTip": "miniMarket\\Program.cs",
-              "ViewState": "AgIAABAAAABgaGZmZqYowB0AAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T14:55:05.724Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProductosController.cs",
-              "DocumentMoniker": "C:\\Users\\Latitude E5450\\Documents\\miniMarket\\miniMarket\\Controllers\\ProductosController.cs",
-              "RelativeDocumentMoniker": "miniMarket\\Controllers\\ProductosController.cs",
-              "ToolTip": "C:\\Users\\Latitude E5450\\Documents\\miniMarket\\miniMarket\\Controllers\\ProductosController.cs",
-              "RelativeToolTip": "miniMarket\\Controllers\\ProductosController.cs",
-              "ViewState": "AgIAAAMAAABgZmZmZmYkwBMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T01:10:52.269Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "InventariosController.cs",
-              "DocumentMoniker": "C:\\Users\\Latitude E5450\\Documents\\miniMarket\\miniMarket\\Controllers\\InventariosController.cs",
-              "RelativeDocumentMoniker": "miniMarket\\Controllers\\InventariosController.cs",
-              "ToolTip": "C:\\Users\\Latitude E5450\\Documents\\miniMarket\\miniMarket\\Controllers\\InventariosController.cs",
-              "RelativeToolTip": "miniMarket\\Controllers\\InventariosController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
+              "Title": "DetalleOrdenLecturaDto.cs",
+              "DocumentMoniker": "C:\\Users\\Erick Otero\\Documents\\miniMarket\\miniMarket\\Dto\\DetalleOrdenLecturaDto.cs",
+              "RelativeDocumentMoniker": "miniMarket\\Dto\\DetalleOrdenLecturaDto.cs",
+              "ToolTip": "C:\\Users\\Erick Otero\\Documents\\miniMarket\\miniMarket\\Dto\\DetalleOrdenLecturaDto.cs",
+              "RelativeToolTip": "miniMarket\\Dto\\DetalleOrdenLecturaDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T01:07:55.909Z",
+              "WhenOpened": "2025-09-16T19:28:10.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DetalleOrdenEscrituraDto.cs",
+              "DocumentMoniker": "C:\\Users\\Erick Otero\\Documents\\miniMarket\\miniMarket\\Dto\\DetalleOrdenEscrituraDto.cs",
+              "RelativeDocumentMoniker": "miniMarket\\Dto\\DetalleOrdenEscrituraDto.cs",
+              "ToolTip": "C:\\Users\\Erick Otero\\Documents\\miniMarket\\miniMarket\\Dto\\DetalleOrdenEscrituraDto.cs",
+              "RelativeToolTip": "miniMarket\\Dto\\DetalleOrdenEscrituraDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T19:28:09.661Z",
               "EditorCaption": ""
             }
           ]

@@ -16,28 +16,31 @@ namespace miniMarket.Controllers
             _service = service;
         }
 
-        /// <response code="200">La operación fue exitosa y se devuelve la lista completa de tiendas disponibles.</response>
+        /// <summary>Obtiene todas las tiendas disponibles en la entidad.</summary>
+        /// <response code="200">La operación fue exitosa y se devuelve la lista completa de tiendas.</response>
         [HttpGet]
         public async Task<ActionResult<List<TiendaLecturaDto>>> Get()
         {
             return Ok(await _service.GetAllAsync());
         }
 
+        /// <summary>Obtiene una tienda específica por su identificador único.</summary>
         /// <param name="id">ID de la tienda que se desea consultar.</param>
-        /// <response code="200">Devuelve una tienda según el parámetro 'ID'.</response>
-        /// <response code="404">Si no existe una tienda.</response>
+        /// <response code="200">Devuelve la tienda correspondiente al ID proporcionado.</response>
+        /// <response code="404">No se encontró ninguna tienda con el ID especificado.</response>
         [HttpGet("{id:int}")]
         public async Task<ActionResult<TiendaLecturaDto>> GetById(int id)
         {
             var tienda = await _service.GetByIdAsync(id);
-            if(tienda == null)
+            if (tienda == null)
             {
-                return NotFound(new {message = $"La tienda con ID {id} no existe." });
+                return NotFound(new { message = $"La tienda con ID {id} no existe." });
             }
 
             return Ok(tienda);
         }
 
+        /// <summary>Crea una nueva tienda en la entidad.</summary>
         /// <param name="dto">Objeto con los datos de la tienda a crear.</param>
         /// <response code="201">La tienda se creó correctamente y se devuelve el objeto creado.</response>
         /// <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
@@ -53,14 +56,15 @@ namespace miniMarket.Controllers
             try
             {
                 var nuevaTienda = await _service.AddAsync(dto);
-                return CreatedAtAction(nameof(GetById), new {id = nuevaTienda.IdTienda}, nuevaTienda);
-            }catch (Exception)
+                return CreatedAtAction(nameof(GetById), new { id = nuevaTienda.IdTienda }, nuevaTienda);
+            }
+            catch (Exception)
             {
                 return StatusCode(500, new { message = "Ocurrió un error al crear la tienda." });
             }
-
         }
 
+        /// <summary>Actualiza una tienda existente por medio de su ID.</summary>
         /// <param name="id">ID de la tienda que se desea actualizar.</param>
         /// <param name="dto">Objeto con los datos actualizados de la tienda.</param>
         /// <response code="204">La tienda se actualizó correctamente.</response>
@@ -78,19 +82,21 @@ namespace miniMarket.Controllers
             try
             {
                 var tienda = await _service.GetByIdAsync(id);
-                if(tienda == null)
+                if (tienda == null)
                 {
                     return NotFound(new { message = $"La tienda con ID {id} no existe." });
                 }
 
                 await _service.UpdateAsync(id, dto);
                 return NoContent();
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                return StatusCode(500, new { message = "Ocurrió un error al actualizar la marca.", error = ex.Message });
+                return StatusCode(500, new { message = "Ocurrió un error al actualizar la tienda.", error = ex.Message });
             }
         }
 
+        /// <summary>Elimina una tienda existente de la base de datos por su ID.</summary>
         /// <param name="id">ID de la tienda que se desea eliminar.</param>
         /// <response code="204">La tienda se eliminó correctamente.</response>
         /// <response code="404">No se encontró ninguna tienda con el ID especificado.</response>
@@ -99,7 +105,7 @@ namespace miniMarket.Controllers
         public async Task<ActionResult<string>> Delete(int id)
         {
             var tienda = await _service.GetByIdAsync(id);
-            if(tienda == null)
+            if (tienda == null)
             {
                 return NotFound(new { message = $"La tienda con ID {id} no existe." });
             }
@@ -108,9 +114,10 @@ namespace miniMarket.Controllers
             {
                 await _service.DeleteAsync(id);
                 return NoContent();
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                return StatusCode(500, new { message = "Ocurrio un error al eliminar la tienda.", error = ex.Message});
+                return StatusCode(500, new { message = "Ocurrió un error al eliminar la tienda.", error = ex.Message });
             }
         }
     }

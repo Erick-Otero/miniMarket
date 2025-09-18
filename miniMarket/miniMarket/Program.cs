@@ -60,6 +60,9 @@ builder.Services.AddScoped<IClienteService, ClienteService>();
 builder.Services.AddScoped<IInventarioRepository, InventarioRepository>();
 builder.Services.AddScoped<IInventarioService, InventarioService>();
 
+builder.Services.AddScoped<IOrdenRepository, OrdenRepository>();
+builder.Services.AddScoped<IOrdenService, OrdenService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -76,7 +79,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "MiniMarket API v1");
-        // c.RoutePrefix = string.Empty; // si quieres que sea la raíz "/"
+        c.RoutePrefix = string.Empty; // si quieres que sea la raíz "/"
     });
 }
 

@@ -35,7 +35,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.String",
+        "Type": "miniMarket.Dto.CategoriaLecturaDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -61,7 +61,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.String",
+        "Type": "miniMarket.Dto.CategoriaLecturaDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -348,17 +348,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "miniMarket.Controllers.EmpleadosController",
@@ -374,17 +364,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "miniMarket.Controllers.InventariosController",
@@ -405,6 +385,100 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "miniMarket.Controllers.InventariosController",
+    "Method": "Post",
+    "RelativePath": "api/Inventarios",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "miniMarket.Dto.InventarioEscrituraDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "miniMarket.Controllers.InventariosController",
+    "Method": "GetById",
+    "RelativePath": "api/Inventarios/{idProducto}/{idTienda}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idProducto",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "idTienda",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "miniMarket.Dto.InventarioLecturaDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "miniMarket.Controllers.InventariosController",
+    "Method": "Put",
+    "RelativePath": "api/Inventarios/{idProducto}/{idTienda}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idProducto",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "idTienda",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "miniMarket.Dto.InventarioEscrituraDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "miniMarket.Controllers.InventariosController",
+    "Method": "Delete",
+    "RelativePath": "api/Inventarios/{idProducto}/{idTienda}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idProducto",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "idTienda",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "miniMarket.Controllers.MarcasController",
@@ -442,7 +516,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.String",
+        "Type": "miniMarket.Dto.MarcaLecturaDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -468,7 +542,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.String",
+        "Type": "miniMarket.Dto.MarcaLecturaDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -513,6 +587,135 @@
     "ContainingType": "miniMarket.Controllers.MarcasController",
     "Method": "Delete",
     "RelativePath": "api/Marcas/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "miniMarket.Controllers.OrdenesController",
+    "Method": "Get",
+    "RelativePath": "api/Ordenes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[miniMarket.Dto.OrdenLecturaDto, miniMarket, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "miniMarket.Controllers.OrdenesController",
+    "Method": "Post",
+    "RelativePath": "api/Ordenes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "miniMarket.Dto.OrdenEscrituraDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "miniMarket.Dto.OrdenLecturaDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "miniMarket.Controllers.OrdenesController",
+    "Method": "GetById",
+    "RelativePath": "api/Ordenes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "miniMarket.Dto.OrdenLecturaDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "miniMarket.Controllers.OrdenesController",
+    "Method": "Put",
+    "RelativePath": "api/Ordenes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "miniMarket.Dto.OrdenEscrituraDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "miniMarket.Controllers.OrdenesController",
+    "Method": "Delete",
+    "RelativePath": "api/Ordenes/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
