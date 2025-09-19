@@ -31,8 +31,8 @@ namespace miniMarket.Controllers
         /// <param name="idTienda">ID de la tienda donde se encuentra el inventario.</param>
         /// <response code="200">Devuelve el inventario correspondiente a los IDs proporcionados.</response>
         /// <response code="404">No existe un inventario con los IDs especificados.</response>
-        [HttpGet("{idProducto:int}/{idTienda:int}")]
-        public async Task<ActionResult<InventarioLecturaDto>> GetById(int idProducto, int idTienda)
+        [HttpGet("{idTienda:int}/{idProducto:int}")]
+        public async Task<ActionResult<InventarioLecturaDto>> GetById(int idTienda, int idProducto)
         {
             var inventario = await _service.GetByIdAsync(idProducto, idTienda);
             if (inventario == null)
@@ -75,8 +75,8 @@ namespace miniMarket.Controllers
         /// <response code="400">Los datos enviados no cumplen con las validaciones requeridas.</response>
         /// <response code="404">No se encontró ningún inventario con los IDs especificados.</response>
         /// <response code="500">Ocurrió un error interno al intentar actualizar el inventario.</response>
-        [HttpPut("{idProducto:int}/{idTienda:int}")]
-        public async Task<IActionResult> Put(int idProducto, int idTienda, [FromBody] InventarioEscrituraDto dto)
+        [HttpPut("{idTienda:int}/{idProducto:int}")]
+        public async Task<IActionResult> Put(int idTienda, int idProducto, [FromBody] InventarioEscrituraDto dto)
         {
             if (!ModelState.IsValid)
             {
@@ -104,8 +104,8 @@ namespace miniMarket.Controllers
         /// <response code="204">El inventario se eliminó correctamente.</response>
         /// <response code="404">No se encontró ningún inventario con los IDs especificados.</response>
         /// <response code="500">Ocurrió un error interno al intentar eliminar el inventario.</response>
-        [HttpDelete("{idProducto:int}/{idTienda:int}")]
-        public async Task<IActionResult> Delete(int idProducto, int idTienda)
+        [HttpDelete("{idTienda:int}/{idProducto:int}")]
+        public async Task<IActionResult> Delete(int idTienda, int idProducto)
         {
             try
             {

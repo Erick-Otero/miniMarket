@@ -176,7 +176,7 @@
   },
   {
     "ContainingType": "miniMarket.Controllers.ClientesController",
-    "Method": "GetByIdAsync",
+    "Method": "GetById",
     "RelativePath": "api/Clientes/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -435,32 +435,6 @@
   },
   {
     "ContainingType": "miniMarket.Controllers.InventariosController",
-    "Method": "Put",
-    "RelativePath": "api/Inventarios/{idProducto}/{idTienda}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "idProducto",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "idTienda",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "dto",
-        "Type": "miniMarket.Dto.InventarioEscrituraDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "miniMarket.Controllers.InventariosController",
     "Method": "Delete",
     "RelativePath": "api/Inventarios/{idProducto}/{idTienda}",
     "HttpMethod": "DELETE",
@@ -475,6 +449,32 @@
       {
         "Name": "idTienda",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "miniMarket.Controllers.InventariosController",
+    "Method": "Put",
+    "RelativePath": "api/Inventarios/{idTienda}/{idProducto}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idTienda",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "idProducto",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "miniMarket.Dto.InventarioEscrituraDto",
         "IsRequired": true
       }
     ],

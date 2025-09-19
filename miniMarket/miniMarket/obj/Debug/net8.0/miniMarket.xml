@@ -41,7 +41,7 @@
             <summary>Obtiene todos los clientes disponibles en la entidad.</summary>
             <response code="200">La operación fue exitosa y se devuelve la lista completa de clientes.</response>
         </member>
-        <member name="M:miniMarket.Controllers.ClientesController.GetByIdAsync(System.Int32)">
+        <member name="M:miniMarket.Controllers.ClientesController.GetById(System.Int32)">
             <summary>Obtiene un cliente específico por su identificador único.</summary>
             <param name="id">ID del cliente que se desea consultar.</param>
             <response code="200">Devuelve el cliente correspondiente al ID proporcionado.</response>

@@ -1,54 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Erick Otero\\Documents\\miniMarket\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|c:\\users\\erick otero\\documents\\minimarket\\minimarket\\dto\\detalleordenlecturadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|solutionrelative:minimarket\\dto\\detalleordenlecturadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|c:\\users\\erick otero\\documents\\minimarket\\minimarket\\dto\\detalleordenescrituradto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A5BF4343-B501-403D-ACC1-427EA5FFC241}|miniMarket\\miniMarket.csproj|solutionrelative:minimarket\\dto\\detalleordenescrituradto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DetalleOrdenLecturaDto.cs",
-              "DocumentMoniker": "C:\\Users\\Erick Otero\\Documents\\miniMarket\\miniMarket\\Dto\\DetalleOrdenLecturaDto.cs",
-              "RelativeDocumentMoniker": "miniMarket\\Dto\\DetalleOrdenLecturaDto.cs",
-              "ToolTip": "C:\\Users\\Erick Otero\\Documents\\miniMarket\\miniMarket\\Dto\\DetalleOrdenLecturaDto.cs",
-              "RelativeToolTip": "miniMarket\\Dto\\DetalleOrdenLecturaDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T19:28:10.989Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DetalleOrdenEscrituraDto.cs",
-              "DocumentMoniker": "C:\\Users\\Erick Otero\\Documents\\miniMarket\\miniMarket\\Dto\\DetalleOrdenEscrituraDto.cs",
-              "RelativeDocumentMoniker": "miniMarket\\Dto\\DetalleOrdenEscrituraDto.cs",
-              "ToolTip": "C:\\Users\\Erick Otero\\Documents\\miniMarket\\miniMarket\\Dto\\DetalleOrdenEscrituraDto.cs",
-              "RelativeToolTip": "miniMarket\\Dto\\DetalleOrdenEscrituraDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T19:28:09.661Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

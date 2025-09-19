@@ -29,7 +29,7 @@ namespace miniMarket.Controllers
         /// <response code="200">Devuelve el cliente correspondiente al ID proporcionado.</response>
         /// <response code="404">No se encontró ningún cliente con el ID especificado.</response>
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<ClienteLecturaDto?>> GetByIdAsync(int id)
+        public async Task<ActionResult<ClienteLecturaDto?>> GetById(int id)
         {
             var cliente = await _service.GetByIdAsync(id);
             if (cliente == null)
@@ -55,7 +55,7 @@ namespace miniMarket.Controllers
             try
             {
                 var nuevoCliente = await _service.AddAsync(dto);
-                return CreatedAtAction(nameof(GetByIdAsync), new { id = nuevoCliente.IdCliente }, nuevoCliente);
+                return CreatedAtAction(nameof(GetById), new { id = nuevoCliente.IdCliente }, nuevoCliente);
             }
             catch (Exception)
             {

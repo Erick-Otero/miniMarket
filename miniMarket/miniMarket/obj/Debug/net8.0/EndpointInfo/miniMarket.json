@@ -894,11 +894,11 @@
           }
         }
       },
-      "put": {
+      "delete": {
         "tags": [
           "Inventarios"
         ],
-        "summary": "Actualiza un inventario existente a partir de su clave compuesta.",
+        "summary": "Elimina un inventario existente a partir de su clave compuesta.",
         "parameters": [
           {
             "name": "idProducto",
@@ -914,6 +914,50 @@
             "name": "idTienda",
             "in": "path",
             "description": "ID de la tienda que identifica el inventario.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "El inventario se eliminó correctamente."
+          },
+          "404": {
+            "description": "No se encontró ningún inventario con los IDs especificados."
+          },
+          "500": {
+            "description": "Ocurrió un error interno al intentar eliminar el inventario."
+          }
+        }
+      }
+    },
+    "/api/Inventarios/{idTienda}/{idProducto}": {
+      "put": {
+        "tags": [
+          "Inventarios"
+        ],
+        "summary": "Actualiza un inventario existente a partir de su clave compuesta.",
+        "parameters": [
+          {
+            "name": "idTienda",
+            "in": "path",
+            "description": "ID de la tienda que identifica el inventario.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idProducto",
+            "in": "path",
+            "description": "ID del producto que identifica el inventario.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -956,48 +1000,6 @@
           },
           "500": {
             "description": "Ocurrió un error interno al intentar actualizar el inventario."
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Inventarios"
-        ],
-        "summary": "Elimina un inventario existente a partir de su clave compuesta.",
-        "parameters": [
-          {
-            "name": "idProducto",
-            "in": "path",
-            "description": "ID del producto que identifica el inventario.",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "idTienda",
-            "in": "path",
-            "description": "ID de la tienda que identifica el inventario.",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "204": {
-            "description": "El inventario se eliminó correctamente."
-          },
-          "404": {
-            "description": "No se encontró ningún inventario con los IDs especificados."
-          },
-          "500": {
-            "description": "Ocurrió un error interno al intentar eliminar el inventario."
           }
         }
       }
